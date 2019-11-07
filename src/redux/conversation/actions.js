@@ -15,14 +15,26 @@ export const openConversation = () => dispatch => {
       {
         id: 'message-1',
         userId: 'user-1',
-        content: 'hello world',
+        content: 'Ok people listen up!',
         timestamp: 1573114909000,
       },
       {
         id: 'message-2',
+        userId: 'user-1',
+        content: 'I have an announcement to make!',
+        timestamp: 1573114909001,
+      },
+      {
+        id: 'message-3',
         userId: 'user-2',
-        content: 'foo bar',
+        content: 'Do you have an announcement?',
         timestamp: 1573118509000,
+      },
+      {
+        id: 'message-4',
+        userId: 'user-1',
+        content: 'I was making it...',
+        timestamp: 1573118599000,
       },
     ],
     title: 'Dunder Mifflin',
@@ -39,6 +51,7 @@ export const sendMessage = value => (dispatch, getState) => {
     content: value,
     timestamp: new Date().getTime(),
   }
+  console.log(message.timestamp)
   dispatch(messageAdded(message))
 }
 
@@ -47,11 +60,11 @@ export const loadUsersInfo = () => dispatch => {
   const mockData = [
     {
       id: 'user-1',
-      name: 'Michael Scott',
+      name: 'Dwight Schrute',
     },
     {
       id: 'user-2',
-      name: 'Dwight Schrute',
+      name: 'Michael Scott',
     },
   ]
 

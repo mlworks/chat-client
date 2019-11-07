@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 // Components
 import Dialog from 'components/dialog'
 import InputSubmit from 'components/input-submit'
+import Message from 'components/message'
 
 const Conversation = ({
   currentUser,
@@ -29,9 +30,13 @@ const Conversation = ({
           />
         </Dialog>
       )}
-
       {messages.map(message => (
-        <p key={message.id}>{message.content}</p>
+        <Message
+          key={message.id}
+          content={message.content}
+          isOutgoing={message.userId === currentUser}
+          timestamp={message.timestamp}
+        />
       ))}
       <div>
         <InputSubmit

@@ -4,6 +4,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding-top: 48px;
+    color: #3c3c3c;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
