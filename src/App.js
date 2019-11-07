@@ -22,9 +22,7 @@ const App = () => (
           </Route>
 
           <Route path="/users-list">
-            <div className="app-contents">
-              <UsersList />
-            </div>
+            <UsersList />
           </Route>
         </Switch>
       </main>

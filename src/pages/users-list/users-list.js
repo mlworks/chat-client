@@ -17,7 +17,7 @@ const UsersList = ({title, users, onGetUsersList}) => {
         title={`Users in ${title}`}
         startActions={<Link to="/">Back</Link>}
       />
-      <div>
+      <div className="app-contents">
         {users.map(({id, ...user}) => (
           <UserItem key={id} {...user} />
         ))}
