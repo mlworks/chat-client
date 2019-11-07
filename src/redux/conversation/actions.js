@@ -60,7 +60,7 @@ export const debugMessage = () => (dispatch, getState) => {
   const message = {
     id: uuidv1(),
     userId: 'user-1',
-    content: 'debug message',
+    content: 'test message',
     timestamp: new Date().getTime(),
   }
   dispatch(messageAdded(message))
