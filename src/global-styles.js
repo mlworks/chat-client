@@ -32,6 +32,23 @@ const GlobalStyle = createGlobalStyle`
     max-width: 640px;
     margin: 0 auto;
   }
+
+  .message-transition-enter {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+  .message-transition-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 200ms ease-out;
+  }
+  .message-transition-exit {
+    opacity: 1;
+  }
+  .message-transition-exit-active {
+    opacity: 0;
+    transition: all 200ms ease-out;
+  }
 `
 
 export default GlobalStyle

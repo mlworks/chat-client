@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types'
+import {TransitionGroup, CSSTransition} from 'react-transition-group'
 
 // Components
 import AppHeader from 'components/app-header'
@@ -44,13 +45,20 @@ const Conversation = ({
         )}
         <div className="t-conversation__messages">
           <div className="app-contents">
-            {messages.map(message => (
-              <Message
-                key={message.id}
-                isOutgoing={message.userId === currentUser}
-                {...message}
-              />
-            ))}
+            <TransitionGroup component={null}>
+              {messages.map(message => (
+                <CSSTransition
+                  key={message.id}
+                  timeout={200}
+                  classNames="message-transition"
+                >
+                  <Message
+                    isOutgoing={message.userId === currentUser}
+                    {...message}
+                  />
+                </CSSTransition>
+              ))}
+            </TransitionGroup>
           </div>
         </div>
         <div className="t-conversation__compose">
