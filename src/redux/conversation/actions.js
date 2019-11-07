@@ -1,4 +1,5 @@
 import {createAction} from 'redux-act'
+import uuidv1 from 'uuid/v1'
 import uuidv4 from 'uuid/v4'
 
 export const conversationUpdated = createAction('conversationUpdated')
@@ -28,6 +29,17 @@ export const openConversation = () => dispatch => {
   }
 
   dispatch(conversationUpdated(mockResponse))
+}
+
+export const sendMessage = value => (dispatch, getState) => {
+  const state = getState()
+  const message = {
+    id: uuidv1(),
+    userId: state.conversation.currentUser,
+    content: value,
+    timestamp: new Date().getTime(),
+  }
+  dispatch(messageAdded(message))
 }
 
 export const loadUsersInfo = () => dispatch => {

@@ -1,5 +1,4 @@
 import {connect} from 'react-redux'
-import uuidv1 from 'uuid/v1'
 
 // Component
 import Conversation from './conversation'
@@ -7,7 +6,7 @@ import Conversation from './conversation'
 // Actions
 import {
   createUser,
-  messageAdded,
+  sendMessage,
   openConversation,
 } from 'redux/conversation/actions'
 
@@ -18,15 +17,7 @@ const mapStateToProps = ({conversation}) => ({
 
 const mapDispatchToProps = dispatch => ({
   onGetConversationHistory: () => dispatch(openConversation()),
-  onMessageSubmit: value => {
-    const message = {
-      id: uuidv1(),
-      userId: 'tester',
-      content: value,
-      timestamp: new Date().getTime(),
-    }
-    dispatch(messageAdded(message))
-  },
+  onMessageSubmit: value => dispatch(sendMessage(value)),
   onUserSubmit: name => dispatch(createUser(name)),
 })
 
