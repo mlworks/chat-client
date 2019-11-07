@@ -5,17 +5,18 @@ import uuidv1 from 'uuid/v1'
 import Conversation from './conversation'
 
 // Actions
-import {messageAdded} from 'redux/conversation/actions'
+import {messageAdded, openConversation} from 'redux/conversation/actions'
 
 const mapStateToProps = ({conversation}) => ({
   messages: conversation.messages,
 })
 
 const mapDispatchToProps = dispatch => ({
+  onGetConversationHistory: () => dispatch(openConversation()),
   onSubmit: value => {
     const message = {
       id: uuidv1(),
-      user: 'tester',
+      userId: 'tester',
       content: value,
       timestamp: new Date().getTime(),
     }
