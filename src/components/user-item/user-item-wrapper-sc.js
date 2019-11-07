@@ -4,7 +4,7 @@ const UserItemWrapperSC = styled.div`
   display: flex;
   align-items: center;
   padding: 8px 16px;
-  min-height: 84px;
+  min-height: 80px;
 
   & + & {
     border-top: 1px solid #e4e4e4;

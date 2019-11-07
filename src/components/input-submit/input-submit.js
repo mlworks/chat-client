@@ -1,29 +1,41 @@
 import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 
+// SC
+import InputSubmitSC from './input-submit-sc'
+
 const InputSubmit = ({id, label, submitText, onSubmit, ...props}) => {
   const [value, setValue] = useState('')
 
   return (
-    <form
+    <InputSubmitSC
       onSubmit={event => {
         event.preventDefault()
         onSubmit(value)
         setValue('')
       }}
     >
-      <label htmlFor={id}>{label}</label>
-      <input
-        {...props}
-        id={id}
-        type="text"
-        value={value}
-        onChange={event => setValue(event.target.value)}
-      />
-      <button type="submit" disabled={!value}>
-        {submitText}
-      </button>
-    </form>
+      <label className="c-input-submit__label" htmlFor={id}>
+        {label}
+      </label>
+      <div className="c-input-submit__controls">
+        <input
+          {...props}
+          className="c-input-submit__input"
+          id={id}
+          type="text"
+          value={value}
+          onChange={event => setValue(event.target.value)}
+        />
+        <button
+          className="c-input-submit__button"
+          type="submit"
+          disabled={!value}
+        >
+          {submitText}
+        </button>
+      </div>
+    </InputSubmitSC>
   )
 }
 

@@ -20,17 +20,17 @@ const App = () => (
     <Router>
       <AppHeader />
       <main>
-        <div className="app-contents">
-          <Switch>
-            <Route exact path="/">
-              <Conversation />
-            </Route>
+        <Switch>
+          <Route exact path="/">
+            <Conversation />
+          </Route>
 
-            <Route path="/users-list">
+          <Route path="/users-list">
+            <div className="app-contents">
               <UsersList />
-            </Route>
-          </Switch>
-        </div>
+            </div>
+          </Route>
+        </Switch>
       </main>
       <GlobalStyle />
     </Router>

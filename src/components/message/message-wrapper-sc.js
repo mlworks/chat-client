@@ -3,7 +3,10 @@ import styled from 'styled-components'
 const MessageWrapperSC = styled.div`
   display: flex;
   flex-direction: ${props => (props.isOutgoing ? 'row-reverse' : 'row')};
-  margin-top: 12px;
+
+  &:not(:first-child) {
+    margin-top: 12px;
+  }
 
   .c-message__avatar {
     flex: 0 0 48px;
