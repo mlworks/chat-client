@@ -2,12 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {format} from 'date-fns'
 
+// Component
+import Avatar from 'components/avatar'
+
 // SC
 import MessageWrapperSC from './message-wrapper-sc'
 
-const Message = ({content, isOutgoing, timestamp}) => (
+const Message = ({avatarUrl, content, isOutgoing, name, timestamp}) => (
   <MessageWrapperSC isOutgoing={isOutgoing}>
-    <div className="c-message__avatar">avatar</div>
+    <div className="c-message__avatar">
+      <Avatar src={avatarUrl} alt={name} />
+    </div>
     <div className="c-message__bubble">
       <div className="c-message__content">{content}</div>
       <div className="c-message__time">{format(timestamp, 'HH:mm')}</div>
@@ -16,8 +21,10 @@ const Message = ({content, isOutgoing, timestamp}) => (
 )
 
 Message.propTypes = {
+  avatarUrl: PropTypes.string,
   content: PropTypes.string,
   isOutgoing: PropTypes.bool,
+  name: PropTypes.string,
   timestamp: PropTypes.number,
 }
 

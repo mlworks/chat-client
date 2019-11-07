@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 // Components
 import Dialog from 'components/dialog'
 import InputSubmit from 'components/input-submit'
-import Message from 'components/message'
+import Message from './connected-message'
 
 const Conversation = ({
   currentUser,
@@ -33,9 +33,8 @@ const Conversation = ({
       {messages.map(message => (
         <Message
           key={message.id}
-          content={message.content}
           isOutgoing={message.userId === currentUser}
-          timestamp={message.timestamp}
+          {...message}
         />
       ))}
       <div>

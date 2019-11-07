@@ -41,6 +41,7 @@ export const openConversation = () => dispatch => {
   }
 
   dispatch(conversationUpdated(mockResponse))
+  dispatch(loadUsersInfo())
 }
 
 export const sendMessage = value => (dispatch, getState) => {
@@ -51,7 +52,6 @@ export const sendMessage = value => (dispatch, getState) => {
     content: value,
     timestamp: new Date().getTime(),
   }
-  console.log(message.timestamp)
   dispatch(messageAdded(message))
 }
 
@@ -61,10 +61,12 @@ export const loadUsersInfo = () => dispatch => {
     {
       id: 'user-1',
       name: 'Dwight Schrute',
+      avatarUrl: '/avatar-1.jpg',
     },
     {
       id: 'user-2',
       name: 'Michael Scott',
+      avatarUrl: '/avatar-2.jpg',
     },
   ]
 
