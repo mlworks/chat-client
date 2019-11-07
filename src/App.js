@@ -1,19 +1,19 @@
 import React from 'react'
-import {HashRouter as Router, Switch, Route, Link} from 'react-router-dom'
+import {HashRouter as Router, Switch, Route} from 'react-router-dom'
+
+// Components
+import AppHeader from 'components/app-header'
 
 // Pages
 import Conversation from 'pages/conversation'
 import UsersList from 'pages/users-list'
 
+// Styles
+import GlobalStyle from 'global-styles.js'
+
 const App = () => (
   <Router>
-    <header>
-      <h1>Title</h1>
-      <nav>
-        <Link to="/">Conversation</Link>
-        <Link to="/users-list">Info</Link>
-      </nav>
-    </header>
+    <AppHeader />
     <main>
       <Switch>
         <Route exact path="/">
@@ -25,6 +25,7 @@ const App = () => (
         </Route>
       </Switch>
     </main>
+    <GlobalStyle />
   </Router>
 )
 
