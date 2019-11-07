@@ -16,6 +16,7 @@ const Conversation = ({
   currentUser,
   messages,
   title,
+  onDebugMessageSubmit,
   onGetConversationHistory,
   onMessageSubmit,
   onUserSubmit,
@@ -70,6 +71,9 @@ const Conversation = ({
               submitText="Send"
               onSubmit={onMessageSubmit}
             />
+            <button type="button" onClick={onDebugMessageSubmit}>
+              Debug add message
+            </button>
           </div>
         </div>
       </ConversationSC>
@@ -81,6 +85,7 @@ Conversation.propTypes = {
   currentUser: PropTypes.string,
   messages: PropTypes.array,
   title: PropTypes.string,
+  onDebugMessageSubmit: PropTypes.func,
   onGetConversationHistory: PropTypes.func,
   onMessageSubmit: PropTypes.func,
   onUserSubmit: PropTypes.func,

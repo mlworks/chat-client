@@ -14,6 +14,7 @@ const AppHeaderSC = styled.header`
     align-items: center;
     justify-content: space-between;
     height: 48px;
+    padding: 0 16px;
   }
 
   .c-app-header__start,

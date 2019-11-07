@@ -55,6 +55,17 @@ export const sendMessage = value => (dispatch, getState) => {
   dispatch(messageAdded(message))
 }
 
+export const debugMessage = () => (dispatch, getState) => {
+  const state = getState()
+  const message = {
+    id: uuidv1(),
+    userId: 'user-1',
+    content: 'debug message',
+    timestamp: new Date().getTime(),
+  }
+  dispatch(messageAdded(message))
+}
+
 export const loadUsersInfo = () => dispatch => {
   // Make server call to get latest and merge with store
   const mockData = [
