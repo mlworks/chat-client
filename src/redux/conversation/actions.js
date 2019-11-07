@@ -55,8 +55,7 @@ export const sendMessage = value => (dispatch, getState) => {
   dispatch(messageAdded(message))
 }
 
-export const debugMessage = () => (dispatch, getState) => {
-  const state = getState()
+export const debugMessage = () => dispatch => {
   const message = {
     id: uuidv1(),
     userId: 'user-1',
