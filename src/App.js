@@ -1,4 +1,5 @@
 import React from 'react'
+import {Provider} from 'react-redux'
 import {HashRouter as Router, Switch, Route} from 'react-router-dom'
 
 // Components
@@ -11,22 +12,27 @@ import UsersList from 'pages/users-list'
 // Styles
 import GlobalStyle from 'global-styles.js'
 
-const App = () => (
-  <Router>
-    <AppHeader />
-    <main>
-      <Switch>
-        <Route exact path="/">
-          <Conversation />
-        </Route>
+// Store
+import store from 'redux/store'
 
-        <Route path="/users-list">
-          <UsersList />
-        </Route>
-      </Switch>
-    </main>
-    <GlobalStyle />
-  </Router>
+const App = () => (
+  <Provider store={store}>
+    <Router>
+      <AppHeader />
+      <main>
+        <Switch>
+          <Route exact path="/">
+            <Conversation />
+          </Route>
+
+          <Route path="/users-list">
+            <UsersList />
+          </Route>
+        </Switch>
+      </main>
+      <GlobalStyle />
+    </Router>
+  </Provider>
 )
 
 export default App
