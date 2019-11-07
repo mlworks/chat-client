@@ -1,6 +1,9 @@
 import React, {useEffect} from 'react'
 import PropTypes from 'prop-types'
 
+// Component
+import UserItem from 'components/user-item'
+
 const UsersList = ({users, onGetUsersList}) => {
   useEffect(() => {
     onGetUsersList()
@@ -8,8 +11,8 @@ const UsersList = ({users, onGetUsersList}) => {
 
   return (
     <div>
-      {users.map(user => (
-        <p key={user.id}>{user.name}</p>
+      {users.map(({id, ...user}) => (
+        <UserItem key={id} {...user} />
       ))}
     </div>
   )

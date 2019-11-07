@@ -24,6 +24,7 @@ const Conversation = ({
       {!currentUser && (
         <Dialog>
           <InputSubmit
+            autoFocus
             id="user-name"
             label="Please input your name to login"
             onSubmit={onUserSubmit}

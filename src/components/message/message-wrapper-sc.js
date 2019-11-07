@@ -3,11 +3,10 @@ import styled from 'styled-components'
 const MessageWrapperSC = styled.div`
   display: flex;
   flex-direction: ${props => (props.isOutgoing ? 'row-reverse' : 'row')};
-  margin: 8px 0;
+  margin-top: 12px;
 
   .c-message__avatar {
     flex: 0 0 48px;
-    min-width: 0;
   }
 
   .c-message__bubble {
