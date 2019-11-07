@@ -7,6 +7,7 @@ import UsersList from './users-list'
 import {loadUsersInfo} from 'redux/conversation/actions'
 
 const mapStateToProps = ({conversation}) => ({
+  title: conversation.title,
   users: conversation.users,
 })
 

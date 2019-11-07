@@ -13,6 +13,7 @@ import {
 const mapStateToProps = ({conversation}) => ({
   currentUser: conversation.currentUser,
   messages: conversation.messages,
+  title: conversation.title,
 })
 
 const mapDispatchToProps = dispatch => ({

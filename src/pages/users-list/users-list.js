@@ -1,24 +1,33 @@
 import React, {useEffect} from 'react'
+import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-// Component
+// Components
+import AppHeader from 'components/app-header'
 import UserItem from 'components/user-item'
 
-const UsersList = ({users, onGetUsersList}) => {
+const UsersList = ({title, users, onGetUsersList}) => {
   useEffect(() => {
     onGetUsersList()
   }, [onGetUsersList])
 
   return (
-    <div>
-      {users.map(({id, ...user}) => (
-        <UserItem key={id} {...user} />
-      ))}
-    </div>
+    <React.Fragment>
+      <AppHeader
+        title={`Users in ${title}`}
+        startActions={<Link to="/">Back</Link>}
+      />
+      <div>
+        {users.map(({id, ...user}) => (
+          <UserItem key={id} {...user} />
+        ))}
+      </div>
+    </React.Fragment>
   )
 }
 
 UsersList.propTypes = {
+  title: PropTypes.string,
   users: PropTypes.array,
   onGetUsersList: PropTypes.func,
 }

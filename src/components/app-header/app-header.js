@@ -4,13 +4,15 @@ import {Link} from 'react-router-dom'
 // SC
 import AppHeaderSC from './app-header-sc'
 
-const AppHeader = () => (
+const AppHeader = ({endActions, startActions, title}) => (
   <AppHeaderSC>
-    <h1>Title</h1>
-    <nav>
-      <Link to="/">Conversation</Link>
-      <Link to="/users-list">Info</Link>
-    </nav>
+    <div className="app-contents">
+      <div className="c-app-header__start">{startActions}</div>
+      <div className="c-app-header__title">
+        <h1>{title}</h1>
+      </div>
+      <div className="c-app-header__end">{endActions}</div>
+    </div>
   </AppHeaderSC>
 )
 
