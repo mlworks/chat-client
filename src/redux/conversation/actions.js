@@ -2,6 +2,7 @@ import {createAction} from 'redux-act'
 
 export const conversationUpdated = createAction('conversationUpdated')
 export const messageAdded = createAction('messageAdded')
+export const setUsersList = createAction('setUsersList')
 
 export const openConversation = () => dispatch => {
   // Make server call to get latest and merge with store
@@ -21,4 +22,20 @@ export const openConversation = () => dispatch => {
   ]
 
   dispatch(conversationUpdated(mockData))
+}
+
+export const loadUsersInfo = () => dispatch => {
+  // Make server call to get latest and merge with store
+  const mockData = [
+    {
+      id: 'user-1',
+      name: 'Michael Scott',
+    },
+    {
+      id: 'user-2',
+      name: 'Dwight Schrute',
+    },
+  ]
+
+  dispatch(setUsersList(mockData))
 }
