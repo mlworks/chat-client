@@ -72,7 +72,7 @@ const Conversation = ({
               onSubmit={onMessageSubmit}
             />
             <button type="button" onClick={onDebugMessageSubmit}>
-              Debug add message
+              Simulate other user new message
             </button>
           </div>
         </div>
