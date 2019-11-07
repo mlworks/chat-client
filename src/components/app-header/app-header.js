@@ -1,5 +1,4 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 
 // SC
 import AppHeaderSC from './app-header-sc'
