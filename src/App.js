@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import {HashRouter as Router, Switch, Route, Link} from 'react-router-dom'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+// Pages
+import Conversation from 'pages/conversation'
+import UsersList from 'pages/users-list'
 
-export default App;
+const App = () => (
+  <Router>
+    <header>
+      <h1>Title</h1>
+      <nav>
+        <Link to="/">Conversation</Link>
+        <Link to="/users-list">Info</Link>
+      </nav>
+    </header>
+    <main>
+      <Switch>
+        <Route exact path="/">
+          <Conversation />
+        </Route>
+
+        <Route path="/users-list">
+          <UsersList />
+        </Route>
+      </Switch>
+    </main>
+  </Router>
+)
+
+export default App
