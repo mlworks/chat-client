@@ -3,7 +3,13 @@ import isEqual from 'lodash/isEqual'
 import unionWith from 'lodash/unionWith'
 
 // Actions
-import {conversationUpdated, messageAdded, setUsersList} from './actions'
+import {
+  conversationUpdated,
+  messageAdded,
+  setCurrentUser,
+  setUsersList,
+  userAdded,
+} from './actions'
 
 const messageReducer = (messages, incomingMessages) =>
   unionWith(messages, incomingMessages, isEqual).sort((a, b) =>
@@ -11,15 +17,18 @@ const messageReducer = (messages, incomingMessages) =>
   )
 
 const initialState = {
+  currentUser: null,
   messages: [],
   users: [],
+  title: '',
 }
 
 const conversation = createReducer(
   {
     [conversationUpdated]: (state, payload) => ({
       ...state,
-      messages: messageReducer(state.messages, payload),
+      messages: messageReducer(state.messages, payload.messages),
+      title: payload.title,
     }),
     [messageAdded]: (state, payload) => ({
       ...state,
@@ -27,7 +36,15 @@ const conversation = createReducer(
     }),
     [setUsersList]: (state, payload) => ({
       ...state,
-      users: payload,
+      users: unionWith(state.users, payload, isEqual),
+    }),
+    [setCurrentUser]: (state, payload) => ({
+      ...state,
+      currentUser: payload,
+    }),
+    [userAdded]: (state, payload) => ({
+      ...state,
+      users: [...state.users, payload],
     }),
   },
   initialState
