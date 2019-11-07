@@ -1,5 +1,10 @@
-import React from 'react'
+import {connect} from 'react-redux'
 
-const UsersList = () => <div>user list</div>
+// Component
+import UsersList from './users-list'
 
-export default UsersList
+const mapStateToProps = ({conversation}) => ({
+  users: conversation.users,
+})
+
+export default connect(mapStateToProps)(UsersList)

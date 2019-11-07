@@ -1,11 +1,10 @@
-import React from 'react'
+import {connect} from 'react-redux'
 
-const Conversation = () => (
-  <div>
-    <p>chat contents</p>
-    <p>chat contents</p>
-    <div>input</div>
-  </div>
-)
+// Component
+import Conversation from './conversation'
 
-export default Conversation
+const mapStateToProps = ({conversation}) => ({
+  messages: conversation.messages,
+})
+
+export default connect(mapStateToProps)(Conversation)
